@@ -39,4 +39,11 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build/web # The folder the action should deploy.
-        
+      - name: Butler Push to Itch.io
+        uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: webgl
+          ITCH_GAME: godot-test
+          ITCH_USER: citizendevelopers
+          PACKAGE: build/web
